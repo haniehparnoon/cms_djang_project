@@ -7,7 +7,8 @@ from django.urls import reverse_lazy
 
 # Create your views here.
 
-class HomePage(TemplateView):
+class HomePage(ListView):
+    model = Category
     template_name = 'home.html'
 
 class HomeAdmin(TemplateView):
@@ -35,6 +36,14 @@ class AddContent(CreateView):
     template_name = 'cmsApp/add_content.html' 
     fields = "__all__"
     success_url = reverse_lazy('show_content')
+
+class CategoryContentList(ListView):
+    model = Content
+    template_name = 'cmsApp/category_content_list.html'
+     
+    def get_queryset(self, *args, **kwargs):
+        return Content.objects.filter(category=self.kwargs['pk'])
+        
 
 
     

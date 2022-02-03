@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+
+{% block title %}Show Content{% endblock title %} 
+{% block content %} 
+<br>
+{% if object_list %}
+<h3>Content List</h3>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for content  in  object_list %}
+        <div class="col">
+          <div class="card h-100">
+            <img src="{{content.image.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{content.title}}</h5>
+              <p class="card-text">price:{{content.price}}</p>
+              <p class="card-text">category:{{content.category.title}}</p>
+              <p class="card-text">{{content.description}}</p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+{% else %}
+<p>no item</p>
+{% endif %}
+<br>
+
+
+{% endblock content %}
