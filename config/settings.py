@@ -55,9 +55,9 @@ AUTHENTICATION_BACKENDS = ( # allauth settings
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # allauth settings
 
 # allauth settings
-# LOGIN_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = "/wherenext/"
 # LOGOUT_REDIRECT_URL = 'home'
-#ACCOUNT_LOGOUT_REDIRECT = 'home'  
+ACCOUNT_LOGOUT_REDIRECT = 'home'  
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 ACCOUNT_USERNAME_REQUIRED = False 
