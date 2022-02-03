@@ -3,4 +3,34 @@
 {% block title %}Home Admin{% endblock title %} 
 {% block content %} 
 <p>hiii Admin</p>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card h-100">
+       
+        <div class="card-body">
+          <a  href ="{% url 'show_category' %}" class="card-title">Show Category</a>
+          <p class="card-text"> Admin Can Show Category And Add Category.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        
+        <div class="card-body">
+          <a class="card-title">Show Content</a>
+          <p class="card-text">Admin Can Show Content And Add Content.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        
+        <div class="card-body">
+          <a class="card-title">Show User's Activity</a>
+          <p class="card-text">Admin Can Show User's Activity log</p>
+        </div>
+      </div>
+    </div>
+    
+  </div>
 {% endblock content %}

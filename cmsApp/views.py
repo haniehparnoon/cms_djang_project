@@ -1,6 +1,7 @@
 from re import template
 from django.shortcuts import render
 from django.views.generic import TemplateView,ListView
+from .models import *
 
 # Create your views here.
 
@@ -12,5 +13,10 @@ class HomeAdmin(TemplateView):
 
 class HomeCustomer(TemplateView):
     template_name = 'cmsApp/home_customer.html'
+
+class ShowCategory(ListView):
+    model = Category
+    template_name = 'cmsApp/show_category.html'
+
 
 
