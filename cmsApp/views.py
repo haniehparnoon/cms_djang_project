@@ -26,5 +26,12 @@ class AddCategory(CreateView):
     fields = "__all__"
     success_url = reverse_lazy('show_category')
 
+class ShowContent(ListView):
+    model = Content
+    template_name = 'cmsApp/show_content.html'
+
+
+    
+
 
 
