@@ -22,9 +22,14 @@ class Content(models.Model):
 class Order(models.Model):
     customer = models.ForeignKey("accounts.Customer", on_delete=models.CASCADE)
     created_at = models.DateField(auto_now_add=True)
+    status_choices = [
+        ("ordered","ordered"),
+        ("paid","paid"),
+    ] 
+    status = models.CharField(choices= status_choices,default="ordered", max_length=7)
 
     def __str__(self):
-        return self.customer.email
+        return self.customer.email+"_"+ self.status
 
 class OrderItem(models.Model):
     content = models.ForeignKey(Content, on_delete=models.CASCADE)
