@@ -30,6 +30,12 @@ class ShowContent(ListView):
     model = Content
     template_name = 'cmsApp/show_content.html'
 
+class AddContent(CreateView):
+    model = Content 
+    template_name = 'cmsApp/add_content.html' 
+    fields = "__all__"
+    success_url = reverse_lazy('show_content')
+
 
     
 

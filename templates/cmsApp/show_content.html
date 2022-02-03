@@ -13,7 +13,7 @@
             <div class="card-body">
               <h5 class="card-title">{{content.title}}</h5>
               <p class="card-text">price:{{content.price}}</p>
-              <p class="card-text">category{{content.category.title}}</p>
+              <p class="card-text">category:{{content.category.title}}</p>
               <p class="card-text">{{content.description}}</p>
             </div>
           </div>
@@ -25,7 +25,7 @@
 <p>no item</p>
 {% endif %}
 <br>
-<a class="btn btn-primary" href="{% url 'add_category' %}" role="button">Add Content</a>
+<a class="btn btn-primary" href="{% url 'add_content' %}" role="button">Add Content</a>
 
 
 {% endblock content %}

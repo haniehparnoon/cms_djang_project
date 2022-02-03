@@ -6,6 +6,9 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 class Category(models.Model):
     title = models.CharField( max_length=70)
 
+    def __str__(self):
+        return self.title
+
 class Content(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     title =  models.CharField( max_length=70)
@@ -13,9 +16,15 @@ class Content(models.Model):
     image = models.ImageField( upload_to='media/')
     price = models.IntegerField()
 
+    def __str__(self):
+        return self.title
+
 class Order(models.Model):
     customer = models.ForeignKey("accounts.Customer", on_delete=models.CASCADE)
     created_at = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.customer.email
 
 class OrderItem(models.Model):
     content = models.ForeignKey(Content, on_delete=models.CASCADE)
