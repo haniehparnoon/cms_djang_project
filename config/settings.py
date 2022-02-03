@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
 
     'accounts',
+    'cmsApp',
 ]
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
