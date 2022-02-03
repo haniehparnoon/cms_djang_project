@@ -5,16 +5,18 @@
 <br>
 {% if object_list %}
 <h3>Category List</h3>
-{% for category  in  object_list %}
+
 <ul class="list-group">
+    {% for category  in  object_list %}
     <li class="list-group-item">{{category.title}}</li> 
+    {% endfor %}
   </ul>
-{% endfor %}
+
 {% else %}
 <p>no item</p>
 {% endif %}
 <br>
-<a class="btn btn-primary" href="#" role="button">Add Category</a>
+<a class="btn btn-primary" href="{% url 'add_category' %}" role="button">Add Category</a>
 
 
 {% endblock content %}
