@@ -16,7 +16,6 @@ class Admin(CustomUser):
         super(Admin, self).save(*args, **kwargs)    
 
 class Customer(CustomUser):
-
     class Meta:
         proxy = True
 
