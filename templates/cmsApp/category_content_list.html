@@ -20,6 +20,9 @@
                 {% csrf_token %}
                 <input class="btn btn-dark" type="submit" value="Add to Cart">
               </form>
+              {% if message %}
+              <p>{{message}}</p>
+              {% endif %}
               
             </div>
           </div>

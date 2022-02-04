@@ -34,11 +34,24 @@ class Order(models.Model):
         else:
             return self.status
 
+    @property
+    def get_cart_total(self):
+        orderitems = OrderItem.objects.filter(order=self.id)
+        if orderitems:
+            return sum([item.get_total_price for item in orderitems]) 
+        else:
+            return 0         
+
 
 class OrderItem(models.Model):
     content = models.ForeignKey(Content, on_delete=models.CASCADE)
     order = models.ForeignKey(Order, on_delete=models.CASCADE)
     quantity = models.IntegerField()
+
+    @property
+    def get_total_price(self):
+        content_price = Content.objects.filter(id=self.content.id).values_list("price")[0][0]
+        return content_price  
 
 class Credit(models.Model):
     cart_number = models.IntegerField(validators=[MinValueValidator(16), MaxValueValidator(16)])
