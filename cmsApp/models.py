@@ -54,9 +54,9 @@ class OrderItem(models.Model):
         return content_price  
 
 class Credit(models.Model):
-    cart_number = models.IntegerField(validators=[MinValueValidator(16), MaxValueValidator(16)])
+    cart_number = models.BigIntegerField(validators=[MinValueValidator(16)])
     price = models.IntegerField()
     password = models.IntegerField()
-    date = models.DateField( auto_now=False, auto_now_add=False)
+    date = models.DateField()
     cvv = models.IntegerField()
-    customer_Credit = models.ForeignKey("accounts.Customer", on_delete=models.CASCADE)
+    customer_Credit = models.OneToOneField("accounts.Customer", on_delete=models.CASCADE)
