@@ -44,8 +44,8 @@
 		<h4>Item Price: {{orderitem.content.price}}</h4>
 		 
 		
-		<a href="#" class="btn btn-danger">DELET</a>
-		<a href="#" class="btn btn-primary">Edit</a>
+		<a href="{% url 'orderitem_delete' orderitem.pk %}" class="btn btn-danger">DELET</a>
+	
 		
 		
 

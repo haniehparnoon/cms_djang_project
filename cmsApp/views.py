@@ -116,13 +116,17 @@ class CreateCredit(CreateView):
     template_name = 'cmsApp/create_credit.html' 
     fields = ('cart_number','price','password','date','cvv',)
     
-
     def form_valid(self, form):
         customer = Customer.objects.get(id= self.request.user.id)
         obj = form.save(commit=False)
         obj.customer_Credit = customer
         obj.save()
         return redirect('cart')
+
+class OrderItemDelete(DeleteView):
+    model = OrderItem
+    template_name = 'cmsApp\orderitem_delete.html'
+    success_url = reverse_lazy('cart')
 
 
 
