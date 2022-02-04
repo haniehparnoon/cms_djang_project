@@ -29,7 +29,11 @@ class Order(models.Model):
     status = models.CharField(choices= status_choices,default="ordered", max_length=7)
 
     def __str__(self):
-        return self.customer.email+"_"+ self.status
+        if self.customer.email:
+            return self.customer.email+"_"+self.status
+        else:
+            return self.status
+
 
 class OrderItem(models.Model):
     content = models.ForeignKey(Content, on_delete=models.CASCADE)

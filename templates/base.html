@@ -95,7 +95,7 @@
             {% endif %}
             {% if not user.is_superuser  %}
             <li class="nav-item">
-              <a class="nav-link" href="#">Cart</a>
+              <a class="nav-link" href="{% url 'cart' %}">Cart</a>
             </li>
             {% endif %}
           </ul>

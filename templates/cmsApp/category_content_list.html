@@ -15,6 +15,12 @@
               <p class="card-text">price:{{content.price}}</p>
               <p class="card-text">category:{{content.category.title}}</p>
               <p class="card-text">{{content.description}}</p>
+
+              <form method="POST" action="{% url 'category_content_list' content.id %}">
+                {% csrf_token %}
+                <input class="btn btn-dark" type="submit" value="Add to Cart">
+              </form>
+              
             </div>
           </div>
         </div>

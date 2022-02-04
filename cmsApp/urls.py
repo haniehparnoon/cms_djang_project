@@ -9,4 +9,5 @@ urlpatterns = [
     path('home_admin/show_content/', ShowContent.as_view(), name = 'show_content'),
     path('home_admin/show_content/add_content/',AddContent.as_view(),name = "add_content"),
     path('category_content_list/<int:pk>',CategoryContentList.as_view(),name = "category_content_list"),
+    path('cart/',cart,name="cart"),
 ]
