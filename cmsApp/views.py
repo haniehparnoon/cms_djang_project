@@ -75,12 +75,8 @@ def cart(request):
         order= Order.objects.filter(customer=customer, status ="ordered")
         for item in order :
             order_price = item.get_cart_total
-        print(order.__dict__)
-        print(type(order))
         customer_credit = Credit.objects.filter(customer_Credit = customer).values_list("price")[0][0]
         if customer_credit:
-            print(customer_credit)
-            #print(customer_credit.__dict__)
             if customer_credit>= order_price :
                 order= Order.objects.filter(customer=customer, status ="ordered").update(status="paid")
                 msg = "successfull"
@@ -89,7 +85,6 @@ def cart(request):
                 msg = "please charge your credit"   
                 return render(request,'cmsApp/cart.html',{"msg":msg})
         else:
-            #msg_create_credit ="please create credit" 
             return redirect('create_credit')       
 
     if request.user.is_authenticated :
